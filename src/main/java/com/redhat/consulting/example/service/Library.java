@@ -5,6 +5,7 @@ import java.util.HashMap;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 
 import com.redhat.consulting.example.domain.Book;
@@ -25,9 +26,18 @@ public class Library
    @Path("books")
    @Produces("application/json")
    //@Mapped // mapped is the default format
-   public BookListing getBooksMapped()
+   public BookListing getBooks()
    {
       return getListing();
+   }
+   
+   @GET
+   @Path("book/{isbn}")
+   @Produces("application/json")
+   public Book getBook(@PathParam("isbn") String isbn)
+   {
+	   
+	   return books.get(isbn);
    }
    
    private BookListing getListing()

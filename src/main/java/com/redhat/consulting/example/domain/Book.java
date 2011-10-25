@@ -1,10 +1,5 @@
 package com.redhat.consulting.example.domain;
 
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlAttribute;
-
-@XmlRootElement(name = "book")
 public class Book
 {
    private String author;
@@ -13,6 +8,7 @@ public class Book
 
    public Book()
    {
+	   //empty
    }
 
    public Book(String author, String ISBN, String title)
@@ -21,8 +17,7 @@ public class Book
       this.ISBN = ISBN;
       this.title = title;
    }
-
-   @XmlElement
+   
    public String getAuthor()
    {
       return author;
@@ -32,8 +27,7 @@ public class Book
    {
       this.author = author;
    }
-
-   @XmlElement
+   
    public String getISBN()
    {
       return ISBN;
@@ -44,7 +38,7 @@ public class Book
       this.ISBN = ISBN;
    }
 
-   @XmlAttribute
+  
    public String getTitle()
    {
       return title;
